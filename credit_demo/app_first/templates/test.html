@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="bar">
+      <ul id="menu" class="menu">
+        <li class="active">搜店</li>
+        <li class="gradient">地址</li>
+        <li class="gradient">优惠券</li>
+        <li class="gradient">全文</li>
+        <li class="gradient">视频</li>
+      </ul>
+    </div>
+    <div class="img_logo"></div>
+    <div id="form">
+      <form action="#">
+        <input id="ins" class="text fl" type="text" value=""/>
+        <input class="btn fr" type="submit" value=""/>
+      </form>
+    </div>
+<script>
+    var tabTit = document.getElementById('menu');
+    var aLi = tabTit.getElementsByTagName('li');
+    var oText = document.getElementById('ins');
+    console.log("ee",oText)
+    var arrText = [
+      '例如：荷棠鱼坊烧鱼 或 樱花日本料理',
+  '例如：一下雪北京就变成了北平',
+  '例如：万达影院双人情侣券',
+  '例如：微信可以评论表情包啦？',
+  '例如：西安就变成了长安'
+    ]
+    for (var i = 0; i < aLi.length; i++) {
+      var num = 0;
+      oText.value=arrText[num];
+      aLi[i].onclick = function(i){
+        var num = i;
+        // var iNow = i;
+        return function(){
+          for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = 'gradient';
+            oText.value = '';
+            console.log('111')
+          };
+          aLi[num].className = 'active';
+          oText.value=arrText[num];
+
+          console.log("aa",oText.value)
+        }
+      }(i);
+    };
+</script>
+</body>
+</html>

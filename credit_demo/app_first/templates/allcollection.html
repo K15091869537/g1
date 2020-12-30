@@ -1,0 +1,103 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+<style>
+    .table-align{
+        text-align: center;
+    }
+</style>
+<script>
+{#    跳转主页#}
+    function goindex() {
+        location.href='/index/'
+    }
+    function collectiontoexcel() {
+        location.href='/collectiontoexcel/催收用户数据表.xls';
+    }
+</script>
+		<div id="content">
+			<div id="content-header">
+				<h1>催收池</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="javascript:;" title="Go to Home" class="tip-bottom" onclick="goindex()"><i class="icon-home"></i> 主页</a>
+				<a href="#" class="current">催收池</a>
+			</div>
+			<div class="container-fluid">
+                <div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-th"></i>
+								</span>
+								<h5>应催收用户数据表</h5>
+								<span class="showspon"></span><input onclick="collectiontoexcel()" type="button" value="Excel导出" class="btn btn-primary label label-info">
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped with-check" align="center">
+									<thead>
+										<tr>
+											<th style="width: 350px;">用户姓名</th>
+{#                                            <th style="width: 350px;">申请时间</th>#}
+											<th style="width: 350px;">应还金额</th>
+                                            <th style="width: 350px;">应还款时间</th>
+                                            <th style="width: 350px;">拖欠时间</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for col in collist %}
+                                            <tr>
+											<td>{{ col.0.Uid.name }}</td>
+											<td>{{ col.0.surplus }}</td>
+                                            <td>{{ col.0.repaid_time | date:'Y-m-d H:i' }}</td>
+                                            <td>{{ col.1 }}天</td>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+                            <div id="pages" style="height: 50px;margin-top:-65px;padding-bottom: 0.2em"></div>
+							</div>
+
+
+						</div>
+
+                        <script>
+		    /**
+		     * layout 参数说明：
+		     *
+		     * total： 总条数
+		     * sizes: 显示每页条数选择框，
+		     * home： 首页按钮
+		     * prev： 上一页按钮
+		     * pager： 页码
+		     * last： 尾页按钮
+		     * next： 下一页按钮
+		     * jumper： 输入框跳转（包含事件：失去焦点，回车）触发
+		     *
+		     * */
+		     new Pagination({
+		        element: '#pages',  // 渲染的容器  [必填]
+		        type: 1,  // 样式类型，默认1 ，目前可选 [1,2] 可自行增加样式   [非必填]
+		        layout: 'total, home, prev, pager, next, last, jumper',  // [必填]
+		        pageIndex: {{ collist.number }}, // 当前页码 [非必填]
+		        pageSize: 10, // 每页显示条数   TODO: 如果使用了sizes这里就无须传参，传了也无效 [必填]
+		        pageCount: 9, // 页码显示数量，页码必须大于等于5的奇数，默认页码9  TODO:为了样式美观，参数只能为奇数， 否则会报错 [非必填]
+		        total: {{ collist.paginator.count }}, // 数据总条数 [必填]
+		        singlePageHide: false,  // 单页隐藏， 默认true  如果为true页码少于一页则不会渲染 [非必填]
+		        pageSizes: [10, 20, 30, 40, 50], // 选择每页条数  TODO: layout的sizes属性存在才生效
+		        prevText: '上一页', // 上一页文字，不传默认为箭头图标  [非必填]
+		        nextText: '下一页', // 下一页文字，不传默认为箭头图标 [非必填]
+		        ellipsis: true, // 页码显示省略符 默认false  [非必填]
+		        disabled: true, // 显示禁用手势 默认false  [非必填]
+		        currentChange: function(index, pageSize) {  // 页码改变时回调  TODO:第一个参数是当前页码，第二个参数是每页显示条数数量，需使用sizes第二参数才有值。
+		            console.log(index,pageSize);
+		            location.href='?page='+index;
+		        }
+		    });
+		</script>
+
+			</div>
+        {% include 'footer.html' %}
+		</div>
+	</body>
+</html>

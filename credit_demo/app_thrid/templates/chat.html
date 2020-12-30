@@ -1,0 +1,100 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+<script>
+    function show_mess(id) {
+        uid_id = id;
+        $.ajax({
+            async:true,url:"/per_usermess/"+ uid_id,
+                  type:'get',
+                success:function (data) {
+                    $('#chat-messages').replaceWith(data);
+                }
+        });
+        document.getElementsByName('reply_content')[0].value =uid_id;
+    }
+
+</script>
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+		<div id="content">
+			<div id="content-header">
+				<h1>站内信息</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>主页</a>
+				<a href="#">站内信息</a>
+				<a href="#" class="current">聊天框</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="alert alert-success">This is an example of support chat. Feel free to write something.<a href="#" class="close" data-dismiss="alert">×</a></div>
+						<div class="widget-box widget-chat">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-comment"></i>
+								</span>
+								<h5>信息框</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<div class="chat-content panel-left">
+								   <div class="chat-messages" id="chat-messages">
+                                       <div id="chat-messages-inner">{{ msg }}</div>
+{#                                       <div id="chat-messages-inner-reply"></div>#}
+                                        <!--  回显框   -->
+                                    </div>
+
+								   <div class="chat-message well">
+{#                                        <button class="btn btn-success" onclick="reply()">发送</button>#}
+                                       <script>
+{#                                           function reply_content() {#}
+{#                                               var mess = document.getElementById('msg-box').value();#}
+{#                                               alert(mess);#}
+{#                                               var new_div = document.createElement("div").innerHTML= mess;#}
+{#                                               document.getElementById('chat-messages').appendChild(new_div);#}
+{#                                           }#}
+                                           $(function () {
+                                               $('#msg-box').blur(function () {
+                                                   var mess = $(this).val();
+{#                                                   alert(mess);#}
+                                                   var el = $('<div style="color: lightcoral;font-size: 22px;padding: 10px;float:right;">'+mess+'</div>');
+                                                   el.appendTo($('#chat-messages'));
+                                                   el.addClass()
+
+                                               })
+                                           })
+                                       </script>
+										<span class="input-box">
+											<form action="/reply/" method="post" >
+                                                {% csrf_token %}
+                                                <input type="text" name="msg-box" id="msg-box"  onblur="reply_content()"  value=""/><input type="text" name="reply_content" value="" style="display: none"><button class="btn btn-success" style="margin-right: -90px;margin-top:-30px;display: inline-block" >发送</button>
+                                            </form>
+										</span>
+								   </div>    {#     回复输入框   #}
+								</div>
+								<div class="chat-users panel-right">
+									<div class="panel-title"><h5>Online Users</h5></div>
+									<div class="panel-content nopadding">
+										<ul class="contact-list">
+                                            {% for msg in mess %}
+                                                    <li id="user-michelle" class="online new" onclick="show_mess({{ msg.Uid.id }})"><a href="#"><img alt="" src="{% static 'img/demo/av1.jpg' %}" /> <span>{{ msg.Uid.name }}</span></a><span class="msg-count badge badge-info">有消息</span></li>
+                                            {% endfor %}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+			</div>
+        {% include 'footer.html' %}
+		</div>
+
+	</body>
+</html>

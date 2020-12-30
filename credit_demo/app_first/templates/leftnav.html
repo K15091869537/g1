@@ -1,0 +1,277 @@
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+    <ul>
+        <li ><a href="/index/"><i class="icon icon-home"></i> <span>首页</span></a></li>
+        <li class="submenu">
+            <a href="#" id="customer"><i class=" icon-user"></i> <span>客户中心管理</span></a>
+            <ul>
+                <li><a href="/userlist/">全部注册用户</a></li>
+                <li><a href="/n_userlist/">注册未申请用户</a></li>
+                <li><a href="/y_userlist/">注册已申请用户</a></li>
+                <li><a href="/blacklist/">黑名单用户</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" id="business"><i class="icon-eye-open"></i> <span>业务查询管理</span></a>
+            <ul>
+                <li><a href="/showBusiness/">全部项目查询</a></li>
+                <li><a href="/showApply/">申请中项目查询</a></li>
+                <li><a href="/showAudit/">审核中项目查询</a></li>
+                <li><a href="/showThrough/">已通过项目查询</a></li>
+                <li><a href="/showRefused/">已拒绝项目查询</a></li>
+                <li><a href="/showLending/">放款中项目查询</a></li>
+                <li><a href="/showAlso/">还款中项目查询</a></li>
+                <li><a href="/showSettlement/">已结清项目查询</a></li>
+                <li><a href="/showTimeout/">已逾期项目查询</a></li>
+                <li><a href="/showDefault/">违约项目查询</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" id="project_review"><i class="icon icon-th-list"></i> <span>项目审核管理</span></a>
+            <ul>
+                <li><a href="/auditList/">待审核客户（审批池）</a></li>
+                <li><a href="/auditDeal/">审核任务处理</a></li>
+                <li><a href="/approvalDeal/">审批任务处理</a></li>
+                <li><a href="/lendingList/">放款审核列表</a></li>
+
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" id="aftercredit"><i class="icon icon-file"></i> <span>贷后业务管理</span></a>
+            <ul>
+                <li><a href="javascript:;" onclick="collection()">催收任务分配（催收池）</a></li>
+                <li class="submenu">
+                    <a href="#" ><span>催收任务处理</span></a>
+                    <ul>
+                        <li><a href="javascript:;" onclick="collectionwork()" >延期7天以下</a></li>
+                        <li><a href="javascript:;" onclick="collectionwork2()">延期7-30天</a></li>
+                        <li><a href="javascript:;"onclick="collectionwork3()">延期30天以上</a></li>
+                    </ul>
+                </li>
+                <li><a href="/userbreak/">减免申请处理</a></li>
+                <li><a href="/breaklist/">减免记录清单</a></li>
+                <li><a href="/userdelay/">展期申请处理</a></li>
+                <li><a href="/delaylist/">展期记录清单</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" class="finance"><i class="icon-lock"></i> <span>财务资金管理</span></a>
+            <ul>
+                <li><a href="javascript:;" onclick="threepay()">三方支付流水</a></li>
+                <li><a href="javascript:;" name="anchorName" onclick="cashpay()">线下现金流水</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" class="finance"><i class=" icon-align-right"></i> <span>财务款项台账</span></a>
+            <ul>
+                <li><a href="javascript:;" onclick="repayment()">客户还款台账</a></li>
+                <li><a href="javascript:;" onclick="unpaid()">未放款台账</a></li>
+                <li><a href="javascript:;" onclick="allpaid()">全部放款台账</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#" id="args"><i class="icon icon-tint"></i> <span>产品参数配置</span></a>
+            <ul>
+                <li><a href="javascript:;" onclick="inproduct()">产品参数配置</a></li>
+                <li><a href="/inforproduct/">产品详细信息</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" id="coupons"><i class=" icon-star"></i> <span>优惠券活动管理</span></a>
+            <ul>
+                <li><a href="/showCoupons/">优惠券活动管理</a></li>
+                <li><a href="/Detail/">优惠券派发明细</a></li>
+                <li><a href="/State/">优惠券使用情况</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-file"></i> <span>站内信文章管理</span></a>
+            <ul>
+
+                <li><a href="/chat/">消息</a></li>
+                <li><a href="/news/">文章分类管理</a></li>
+                <li><a href="/pic/">banner管理</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class=" icon-calendar"></i> <span>系统安全管理</span></a>
+            <ul>
+                <li><a href="/show_login/">用户登录日志</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-signal"></i> <span>三方认证</span></a>
+            <ul>
+                <li><a href="/manage_creid/">用户信用管理</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#" id="personnel"><i class="icon icon-th"></i> <span>公司人员管理</span></a>
+            <ul>
+                <li><a href="javascript:;" onclick="updata()">修改密码</a></li>
+                <li><a href="javascript:;" onclick="administration()">部门人员管理</a></li>
+                <li><a href="javascript:;" onclick="newemp()">新员工初始化设置</a></li>
+            </ul>
+        </li>
+    </ul>
+<script>
+{#获取模块对象#}
+{#用户管理中心#}
+    customer = document.getElementById('customer');
+{#    业务查询管理#}
+    business = document.getElementById('business');
+{#项目审核管理#}
+    project_review = document.getElementById('project_review');
+{#贷后业务管理#}
+    aftercredit = document.getElementById('aftercredit');
+{#   财务资金管理 #}
+    finance = document.getElementsByClassName('finance');
+{#    参数设置#}
+    args = document.getElementById('args');
+{#    优惠券#}
+    coupons = document.getElementById('coupons');
+{#    站内信息管理#}
+    information = document.getElementsByClassName('information');
+{#人事管理#}
+    personnel= document.getElementById('personnel');
+        {% if request.user.e_work.Job_name == '客服' %}
+{#            项目审核管理#}
+            project_review.style.opacity=0.2;
+            $('#project_review').css("pointer-events","none");
+{#            贷后业务管理#}
+            aftercredit.style.opacity=0.2;
+            $('#aftercredit').css("pointer-events","none");
+{#            财务资金管理#}
+            finance[0].style.opacity=0.2;
+            finance[1].style.opacity=0.2;
+            $('.finance').css("pointer-events","none");
+{#            产品参数#}
+            args.style.opacity=0.2;
+            $('#args').css("pointer-events","none");
+{#            人事管理#}
+            personnel.style.opacity=0.2;
+            $('#personnel').css("pointer-events","none");
+
+        {% endif %}
+{% if request.user.e_work.Job_name == '人事' %}
+    {#            项目审核管理#}
+            project_review.style.opacity=0.2;
+            $('#project_review').css("pointer-events","none");
+{#            贷后业务管理#}
+            aftercredit.style.opacity=0.2;
+            $('#aftercredit').css("pointer-events","none");
+{#            财务资金管理#}
+            finance[0].style.opacity=0.2;
+            finance[1].style.opacity=0.2;
+            $('.finance').css("pointer-events","none");
+            args.style.opacity=0.2;
+            $('#coupons').css("pointer-events","none");
+{% endif %}
+    {% if request.user.e_work.Job_name == '财务' %}
+{#        客户中心管理#}
+            customer.style.opacity=0.2;
+            $('#customer').css("pointer-events","none");
+{#            产品参数#}
+            args.style.opacity=0.2;
+            $('#args').css("pointer-events","none");
+{#            人事管理#}
+            personnel.style.opacity=0.2;
+            $('#personnel').css("pointer-events","none");
+{#业务查询管理#}
+        business.style.opacity=0.2;
+        $('#business').css("pointer-events","none");
+{#        项目审核管理#}
+        project_review.style.opacity=0.2;
+        $('#project_review').css("pointer-events","none");
+{#       优惠券 #}
+        coupons.style.opacity=0.2;
+        $('#coupons').css("pointer-events","none");
+{#        站内信息管理#}
+        information[0].style.opacity=0.2;
+        information[1].style.opacity=0.2;
+        information[2].style.opacity=0.2;
+        $('.information').css("pointer-events","none");
+    {% endif %}
+{% if request.user.e_work.Job_name == '催收' %}
+{#            产品参数#}
+            args.style.opacity=0.2;
+            $('#args').css("pointer-events","none");
+{#            人事管理#}
+            personnel.style.opacity=0.2;
+            $('#personnel').css("pointer-events","none");
+{#业务查询管理#}
+        business.style.opacity=0.2;
+        $('#business').css("pointer-events","none");
+{#        项目审核管理#}
+        project_review.style.opacity=0.2;
+        $('#project_review').css("pointer-events","none");
+{#       优惠券 #}
+        coupons.style.opacity=0.2;
+        $('#coupons').css("pointer-events","none");
+{#        站内信息管理#}
+        information[0].style.opacity=0.2;
+        information[1].style.opacity=0.2;
+        information[2].style.opacity=0.2;
+        $('.information').css("pointer-events","none");
+        {#            财务资金管理#}
+            finance[0].style.opacity=0.2;
+            finance[1].style.opacity=0.2;
+            $('.finance').css("pointer-events","none");
+{% endif %}
+{% if request.user.e_work.Job_name == '客户经理' %}
+    {#            财务资金管理#}
+            finance[0].style.opacity=0.2;
+            finance[1].style.opacity=0.2;
+            $('.finance').css("pointer-events","none");
+            {#            产品参数#}
+            args.style.opacity=0.2;
+            $('#args').css("pointer-events","none");
+            {#            人事管理#}
+            personnel.style.opacity=0.2;
+            $('#personnel').css("pointer-events","none");
+{% endif %}
+    function threepay() {
+        location.href='/thirdpay/';
+    }
+    function cashpay() {
+        location.href='/cashpay/';
+    }
+    function updata() {
+        location.href='/updatamesage/';
+    }
+    function administration() {
+        location.href='/administration/';
+    }
+    function repayment() {
+        location.href='/repayment/';
+    }
+    function newemp() {
+        location.href='/newemp/';
+    }
+    function unpaid() {
+        location.href='/unpaid/';
+    }
+    function allpaid() {
+        location.href='/allpaid/';
+    }
+{#    催收池#}
+    function collection() {
+        location.href='/collection/';
+    }
+{#    催收处理#}
+    function collectionwork() {
+        location.href='/collectionwork/';
+    }
+    function collectionwork2() {
+        location.href='/collectionwork2/';
+    }
+    function collectionwork3() {
+        location.href='/collectionwork3/';
+    }
+{#    产品参数#}
+    function inproduct() {
+        location.href='/inproduct/';
+    }
+</script>
+</div>

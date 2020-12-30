@@ -1,0 +1,99 @@
+{% load static %}
+<style>
+    .footer_left{
+        text-align: center;
+        position: absolute;
+
+        width: 300px;
+{#        margin-left: 30px;#}
+
+}
+    .footer_mide{
+        text-align: center;
+
+        width: 300px;
+        margin-left: 400px;
+
+    }
+    .footer_right{
+        position: absolute;
+        text-align: center;
+
+        width: 400px;
+        margin-left: 850px;
+        margin-top: -115px;
+    }
+    .weibo{
+        margin-left: 160px;
+        margin-top: -140px;
+    }
+    .weixin{
+        margin-top: 20px;
+        margin-left: -100px;
+    }
+    ul li{
+        list-style-type: none;
+    }
+    .span{
+        color: orangered;
+        font-size: 16px;
+    }
+    .left{
+        display: block;
+        margin-left: -10px;
+    }
+    .mide{
+        display: block;
+        margin-left: -5px;
+    }
+    .fluid{
+{#        position: absolute;#}
+        margin: 0 auto;
+        background-color: #e0e0e0;
+        width: 1300px;
+        height: 200px;
+    }
+    .bottom{
+        margin: 0;
+        height: 200px;
+        background-color: #e0e0e0;
+    }
+</style>
+<div class="bottom">
+<div class="fluid">
+    <div id="footer" class="span12">
+        <div class="footer_left" >
+            <h5 class="span">热门产品</h5>
+            <br>
+            <ul class="left" >
+                <li>小额贷款</li>
+                <li>融资租赁</li>
+                <li>助攻助产</li>
+            </ul>
+        </div>
+        <div class="footer_mide" >
+            <h5 class="span">联系我们</h5>
+            <br>
+            <ul class="mide">
+                <li style="color: red;font-size: 18px;font-weight: 600;">400-090-3910</li>
+                <li>西安地址:省体育场陕西高速大厦</li>
+                <li>分公司未来可期</li>
+            </ul>
+        </div>
+        <div class="footer_right">
+            <h5 class="span">关注我们了解最新动态</h5>
+            <div>
+                <div class="weixin">
+                <img style="width: 100px;height: 100px;" src="{% static 'img/index-weixin.png' %}">
+                <p>关注微信</p>
+                </div>
+                <div class="weibo">
+                <img style="width: 100px;height: 100px;" src="{% static 'img/index-sina.png' %}">
+                <p>关注微博</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

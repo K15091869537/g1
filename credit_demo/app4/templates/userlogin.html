@@ -1,0 +1,298 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>Full Screen Enroll Form Responsive Widget Template :: w3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Full Screen Enroll Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="/static/cssone/loginstyle.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="/static/cssone/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+	    rel="stylesheet">
+	<!-- //web-fonts -->
+</head>
+
+<body>
+	<div class="main-w3ls">
+		<div class="left-content">
+			<div class="w3ls-content">
+				<!-- logo -->
+				<h1>
+					<a href="index.html"><i class="fab fa-accusoft"></i>Full Screen Enroll Form</a>
+				</h1>
+				<!-- //logo -->
+				<h2>Sed do eiusmod tempor incidunut labore.</h2>
+				<a href="#" class="button-w3ls">
+					<i class="fas fa-long-arrow-alt-right"></i>
+				</a>
+				<ul class="nav-w3ls">
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">About Us</a>
+					</li>
+					<li>
+						<a href="#">Error Page</a>
+					</li>
+					<li>
+						<a href="#">Blog</a>
+					</li>
+					<li>
+						<a href="#">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+			<!-- copyright -->
+			<div class="copyright">
+				<p>&copy; 2018 Full Screen Enroll Form. All rights reserved | Design by
+					<a href="http://w3layouts.com">W3layouts</a>
+				</p>
+			</div>
+			<!-- //copyright -->
+		</div>
+		<div class="right-form-agile">
+			<!-- content -->
+			<div class="sub-main-w3">
+				<h3>Signup Now</h3>
+				<h5>Creating an account is free..</h5>
+				<p>and won't take longer than a couple os seconds</p>
+				<form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-style-agile">
+						<label>实名</label>
+						<div class="pom-agile">
+							<span class="fas fa-envelope-open"></span>
+							<input placeholder="name" name="name" type="text"  required="">
+						</div>
+					</div>
+                    <div class="form-style-agile">
+						<label>身份证号</label>
+						<div class="pom-agile">
+							<span class="fas fa-user"></span>
+							<input placeholder="card" name="card" type="text" required="">
+						</div>
+					</div>
+
+                    <div class="form-style-agile">
+						<label>职业</label>
+						<div class="pom-agile">
+							<span class="fas fa-user"></span>
+							<input placeholder="职业" name="work" type="text" required="">
+						</div>
+					</div>
+
+                    <div class="form-style-agile">
+						<label>电话</label>
+						<div class="pom-agile">
+							<span class="fas fa-key"></span>
+							<input placeholder="电话" name="tel" type="text" required="">
+						</div>
+					</div>
+
+                    <div class="form-style-agile">
+						<label>个人或企业</label>
+						<div>
+							 <select name="u_type" class="pom-agile" onchange="companyorperson(this)">
+                                <option value="0" selected>个人</option>
+                                <option value="1">企业</option>
+                             </select>
+						</div>
+					</div>
+
+                    <div class="form-style-agile">
+						<label>身份证正面</label>
+						<div >
+							<span class="fas fa-key"></span>
+							<input name="card_p" id="card_p" type="file" required="">
+						</div>
+                        <img src="" id="img_p" style="width: 100px;height: 60px;background-size: 100% 100%">
+					</div>
+
+                    <div class="form-style-agile">
+						<label>身份证反面</label>
+						<div>
+							<span class="fas fa-key"></span>
+							<input name="card_r" id="card_r" type="file" required="">
+						</div>
+                        <img src="" id="img_r" style="width: 100px;height: 60px;background-size: 100% 100%">
+					</div>
+
+
+                    <div id="company" style="display: none">
+
+                        <div class="form-style-agile">
+                            <label>公司名称</label>
+                            <div class="pom-agile">
+                                <span class="fas fa-key"></span>
+                                <input placeholder="公司名称" name="company" type="text">
+                            </div>
+					    </div>
+
+                        <div class="form-style-agile">
+                            <label>统一社会信用代码</label>
+                            <div class="pom-agile">
+                                <span class="fas fa-key"></span>
+                                <input placeholder="统一社会信用代码" name="credit_code" type="text">
+                            </div>
+					    </div>
+
+                        <div class="form-style-agile">
+                            <label>公司资质照片</label>
+                            <div>
+                                <span class="fas fa-key"></span>
+                                <input name="company_img" id="company_img" type="file">
+                            </div>
+                            <img src="" id="img_c" style="width: 100px;height: 60px;background-size: 100% 100%">
+					    </div>
+                    </div>
+
+
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //content -->
+    <script src="/static/jsone/jquery-3.3.1.min.js"></script>
+    <script src="/static/jsone/jquery.cookie.js"></script>
+	<!-- password-script -->
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		};
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("密码不匹配");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+
+
+		function companyorperson(obj) {
+            var company=document.getElementById('company');
+            var count=parseInt(obj.value);
+            console.log(count);
+            switch(count){
+                case 1:company.style.display='';break;
+                case 0:company.style.display='none';break;
+            }
+        }
+
+        {#身份证正面显示#}
+        $(function () {
+            $('#card_p').change(function () {
+                console.log('进入');
+{#                建立表单数据对象#}
+                var form_data=new FormData();
+{#                获取文件域中对象#}
+                var file_obj=$('#card_p')[0].files[0];
+{#                将文件对象加入表单对象#}
+                form_data.append('card_p',file_obj);
+                console.log('准备进入ajax');
+                $.ajax({
+                    asnyc:true,
+                    url:'/uploadcard_p/',
+                    type:'post',
+                    headers:{"X-CSRFToken":$.cookie("csrftoken"),},
+                    data:form_data,
+                    processData:false,
+                    contentType:false,
+                    success:function (data) {
+                        console.log(1);
+                        console.log(data);
+                        $('#img_p').attr("src",data);
+                    }
+                })
+            })
+        })
+        {#身份证反面显示#}
+        $(function () {
+            $('#card_r').change(function () {
+                console.log('进入');
+{#                建立表单数据对象#}
+                var form_data=new FormData();
+{#                获取文件域中对象#}
+                var file_obj=$('#card_r')[0].files[0];
+{#                将文件对象加入表单对象#}
+                form_data.append('card_r',file_obj);
+                console.log('准备进入ajax');
+                $.ajax({
+                    asnyc:true,
+                    url:'/uploadcard_r/',
+                    type:'post',
+                    headers:{"X-CSRFToken":$.cookie("csrftoken"),},
+                    data:form_data,
+                    processData:false,
+                    contentType:false,
+                    success:function (data) {
+                        console.log(1);
+                        console.log(data);
+                        $('#img_r').attr("src",data);
+                    }
+                })
+            })
+        })
+
+                {#公司照显示#}
+        $(function () {
+            $('#company_img').change(function () {
+                console.log('进入');
+{#                建立表单数据对象#}
+                var form_data=new FormData();
+{#                获取文件域中对象#}
+                var file_obj=$('#company_img')[0].files[0];
+{#                将文件对象加入表单对象#}
+                form_data.append('company_img',file_obj);
+                console.log('准备进入ajax');
+                $.ajax({
+                    asnyc:true,
+                    url:'/company_img/',
+                    type:'post',
+                    headers:{"X-CSRFToken":$.cookie("csrftoken"),},
+                    data:form_data,
+                    processData:false,
+                    contentType:false,
+                    success:function (data) {
+                        console.log(1);
+                        console.log(data);
+                        $('#img_c').attr("src",data);
+                    }
+                })
+            })
+        })
+	</script>
+	<!-- //password-script -->
+
+</body>
+
+</html>

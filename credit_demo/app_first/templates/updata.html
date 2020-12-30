@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <title>贷贷相传</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/unicorn.login.css' %}" />
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/unicorn.login.js' %}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <body>
+    <div id="logo">
+        <p  style="margin-top: 20px"><a href="#"  style="z-index: 9999;"><img src="{% static 'img/logo1.png' %}"></a></p>
+    </div>
+
+        <div id="loginbox" style="height: 300px">
+            <form id="loginform" class="form-vertical" action="" method="post" />
+            {% csrf_token %}
+				<p>修改个人信息</p>
+                <p style="color: red;">{{ msg }}</p>
+{#                <div class="control-group">#}
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-user"></i></span><input type="text" name="name" value="{{ user.username }}"  />
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-eye-close"></i></span><input type="password" name="oldpassword" placeholder="旧密码" />
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-eye-close"></i></span><input type="password" name="newpassword" placeholder="新密码" />
+                        </div>
+                    </div>
+               <div class="form-actions">
+                    <span class="pull-right"><input type="submit" class="btn btn-inverse" value="确认修改" /></span>
+                </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,495 @@
+    {% include 'header1.html' %}
+    {% load static %}
+    <!-- Hero Section Begin -->
+    <section class="hero set-bg midebackground">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="hero__text">
+                    {% if a %}
+                        <h2>办理状态：</h2>
+                        {% if a.apply == 1 %}
+                        <p>申请状态：申请完成 </p>
+                        {% elif a.apply == 2 %}
+                        <p>申请状态：申请失败 </p>
+                        {% else %}
+                        <p>申请状态：申请中 </p>
+                        {% endif %}
+
+                        {% if a.audit == 1 %}
+                        <p>审核状态：审核完成 </p>
+                        {% elif a.audit == 2 %}
+                        <p>审核状态：审核失败 </p>
+                        {% else %}
+                        <p>审核状态：审核中 </p>
+                        {% endif %}
+
+                        {% if a.approval == 1 %}
+                        <p>审批状态：审批完成 </p>
+                        {% elif a.approval == 2 %}
+                        <p>审批状态：审批失败 </p>
+                        {% else %}
+                        <p>审批状态：审批中 </p>
+                        {% endif %}
+
+                        {% if a.grant == 1 %}
+                        <p>放款状态：放款完成 </p>
+                        {% elif a.grant == 2 %}
+                        <p>放款状态：放款失败 </p>
+                        {% else %}
+                        <p>放款状态：放款中 </p>
+                        {% endif %}
+                    {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-2">
+                    {#借款申请入口#}
+                    <div class="hero__form">
+                        <h3>你还需还多少</h3>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="input-list">
+                                <div class="input-list-item">
+                                    <p>待还金额 ($):</p>
+                                    <input type="text" name="sum_many" value="{{ surplus.surplus }}">
+                                </div>
+                                <div class="input-list-item">
+                                    <p>还款方式:</p>
+                                    <select name="pays">
+                                        {% for p in payslist %}
+                                            <option value="{{ p.id }}">{{ p.pay_way }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-full-width">
+                                <p>还款:</p>
+                                <input type="text" name="repaid" value="0">
+                            </div>
+                            <div class="input-list last">
+                                <div class="input-list-item">
+                                    <p>姓名:</p>
+                                    <input type="text" name="name" placeholder="请输入实名">
+                                </div>
+                                <div class="input-list-item">
+                                    <p>电话:</p>
+                                    <input type="text" name="tel">
+                                </div>
+
+                            </div>
+                            <button type="submit" name="submit" value="1" class="site-btn" >现在就去还款!</button>
+                            <p></p>
+{#                            <button type="submit" name="submit" class="site-btn" >一次还清所有欠款!</button>#}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Home About Begin -->
+    <section class="home-about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="home__about__text">
+                        <div class="section-title">
+                            <h2>Thousands Of Customers Trust Our Company</h2>
+                            <p>The brochure must grab a viewer’s attention and hold it long enough to deliver the
+                                pertinent information. How do you grab your customers’ attention with just a piece</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="home__about__item">
+                                    <h4>Our Company</h4>
+                                    <p>You could try by giving the viewer paper cut, but that’s not the kind of
+                                        attention</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="home__about__item">
+                                    <h4>Our Vision</h4>
+                                    <p>The brochure must grab a viewer’s attention and hold it long enough to</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="£" class="primary-btn">learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="home__about__img">
+                        <img src="{% static 'imgone/about/home-about.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home About End -->
+
+    <!-- Loan Services Section Begin -->
+    <section class="loan-services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>为你找到所有的贷款</h2>
+                        <p>If you try to cut corners on your brochure you will end up spending more money</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="loan__services__list">
+                {#主打产品展示#}
+                {% for product in productlist %}
+                    <div class="loan__services__item set-bg loan_0{{ forloop.counter }}">
+                        <div class="loan__services__item__text">
+                            <h4><span>编号：{{ forloop.counter }}</span> 产品名：{{ product.p_name }} </h4>
+                            <p>产品简介：{{ product.introduc }}</p>
+                            <a href="/apply/{{ u.id }}/{{ product.id }}/">跳转到产品申请页</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Loan Services Section End -->
+
+    <section class="loan-services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>为你找到所有的优惠券</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="loan__services__list">
+                {#主打优惠卷展示#}
+                {% for coupons in couponslist %}
+                   <div class="loan__services__item set-bg loan_0{{ forloop.counter }}">
+                        <div class="loan__services__item__text">
+                            <h4><span>编号：{{ forloop.counter }}</span> 优惠券类型：{{ coupons.c_type.t_name }} </h4>
+                            <p>优惠券名称：{{ coupons.c_title }}</p>
+                            <a href="/addcoupons/{{ u.id }}/{{ coupons.id }}/">申请优惠券</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {# 联系员工#}
+    <section class="loan-services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>发送信息给指定员工</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="loan__services__list">
+                {#员工展示#}
+                {% for emp in emplist %}
+                   <div class="loan__services__item set-bg loan_0{{ forloop.counter }}">
+                        <div class="loan__services__item__text">
+                            <h4><span>编号：{{ forloop.counter }}</span> 员工名：{{ emp.username }} </h4>
+                            <p>员工工号：{{ emp.work_num }}</p>
+                            <a href="/contact/{{ u.id }}/{{ emp.id }}/">发信息</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Choose Section Begin -->
+    <section class="choose spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Why People Choose Us</h2>
+                        <p>This question should make the viewer want to open the brochure to learn more.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-1.png' %}" alt="">
+                        <h5>Quick & Easy</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-2.png' %}" alt="">
+                        <h5>Absolute Security</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-3.png' %}" alt="">
+                        <h5>Quick Approval</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-4.png' %}" alt="">
+                        <h5>Low Interest Rates</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-5.png' %}" alt="">
+                        <h5>Personal Security</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="choose__item">
+                        <img src="{% static 'imgone/choose/choose-6.png' %}" alt="">
+                        <h5>Disbursement Day</h5>
+                        <p>Typography should be relevant and thought out. Type is so strong that it can</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Choose Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <div class="testimonial spad set-bg Customersbg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>What Customers Are Saying</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting has been the</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial__carousel">
+        <div class="container">
+            <div class="row">
+                <div class="testimonial__slider owl-carousel">
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <img src="{% static 'img/testimonial/testimonial-1.png' %}" alt="">
+                            <h5>Gussie Williamson</h5>
+                            <span>Ceo Colorlib</span>
+                            <p>Thereby, choosing the right business card design is important and requires careful
+                                considerations so that it will not look cheap and may tarnish your reputation in this
+                                highly</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <img src="{% static 'img/testimonial/testimonial-2.png' %}" alt="">
+                            <h5>James Santos</h5>
+                            <span>Ceo Colorlib</span>
+                            <p>You need to pay special attention to the type of colors in your business cards. For
+                                instance, if you’re in the funeral industry, bright-luminous type of colors may not be
+                                too.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <img src="{% static 'img/testimonial/testimonial-3.png' %}" alt="">
+                            <h5>Birdie Hamilton</h5>
+                            <span>Ceo Colorlib</span>
+                            <p>Ensure that the details of your business card are up to date. Business card with outdated
+                                contact numbers and addresses should be amended before distributing to your clients.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <img src="{% static 'img/testimonial/testimonial-2.png' %}" alt="">
+                            <h5>James Santos</h5>
+                            <span>Ceo Colorlib</span>
+                            <p>You need to pay special attention to the type of colors in your business cards. For
+                                instance, if you’re in the funeral industry, bright-luminous type of colors may not be
+                                too.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Section End -->
+
+    <!-- Counter Begin -->
+    <div class="counter spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="counter__item">
+                        <img src="{% static 'img/counter/counter-1.png' %}" alt="">
+                        <div class="counter__number">
+                            <h2 class="counter-add">2100</h2>
+                        </div>
+                        <p>Successful Loan Approval</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="counter__item">
+                        <img src="{% static 'img/counter/counter-2.png' %}" alt="">
+                        <div class="counter__number">
+                            <h2 class="counter-add">99</h2>
+                            <span>%</span>
+                        </div>
+                        <p>Customer Satisfection</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="counter__item">
+                        <img src="{% static 'img/counter/counter-3.png' %}" alt="">
+                        <div class="counter__number">
+                            <h2 class="counter-add">90</h2>
+                            <span>+</span>
+                        </div>
+                        <p>Office National Partners</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="counter__item">
+                        <img src="{% static 'img/counter/counter-4.png' %}" alt="">
+                        <div class="counter__number">
+                            <h2 class="counter-add">70</h2>
+                            <span>+</span>
+                        </div>
+                        <p>Award Certificate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Counter End -->
+
+    <!-- Call Section Begin -->
+    <section class="call spad set-bg callBack">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6">
+                    <div class="call__text">
+                        <div class="section-title">
+                            <h2>Request A Call Back</h2>
+                            <p>Posters had been a very beneficial marketing tool because it had paved to deliver an
+                                effective message that conveyed customer’s attention.</p>
+                        </div>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 col-md-6">
+                    <form action="#" class="call__form">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Email">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Phone">
+                            </div>
+                            <div class="col-lg-6">
+                                <select>
+                                    <option value="">Choose Our Services</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="site-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="latest spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Latest Post</h2>
+                        <p>Certainly at that point I was not a potential client for the Strib, but promotional</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="latest__blog__item">
+                        <h5><a href="#">Get Best Advertiser In Your Side</a></h5>
+                        <p>The StarTribune doesn’t just hand out the responsibility of informing their community’s
+                            citizenry on a daily basis to just any...</p>
+                        <div class="latest__blog__author">
+                            <div class="latest__blog__author__pic">
+                                <img src="{% static 'img/latest/lb-1.png' %}" alt="">
+                            </div>
+                            <div class="latest__blog__author__text">
+                                <h6>May Cain</h6>
+                                <span>19th March, 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="latest__blog__item">
+                        <h5><a href="#">Internet Advertising Trends You</a></h5>
+                        <p>Nope, I had to interview for this job. And I tell you, I was magnificent, so much so that, as
+                            you know, I got the position...</p>
+                        <div class="latest__blog__author">
+                            <div class="latest__blog__author__pic">
+                                <img src="{% static 'img/latest/lb-2.png' %}" alt="">
+                            </div>
+                            <div class="latest__blog__author__text">
+                                <h6>May Cain</h6>
+                                <span>19th March, 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="latest__blog__item">
+                        <h5><a href="#">Improve Your Business Cards</a></h5>
+                        <p>Upon completion of the interview the gentleman that was to give me my first opportunity at
+                            financial freedom...</p>
+                        <div class="latest__blog__author">
+                            <div class="latest__blog__author__pic">
+                                <img src="{% static 'img/latest/lb-3.png' %}" alt="">
+                            </div>
+                            <div class="latest__blog__author__text">
+                                <h6>May Cain</h6>
+                                <span>19th March, 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <a href="#" class="primary-btn">View More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+    {% include 'contactbegin.html' %}
+    <!-- Contact End -->
+    {% include 'footer1.html' %}

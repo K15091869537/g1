@@ -1,0 +1,77 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+<style>
+    .table-align{
+        text-align: center;
+    }
+</style>
+<script>
+{#    跳转主页#}
+    function goindex() {
+        location.href='/index/'
+    }
+</script>
+		<div id="content">
+			<div id="content-header">
+				<h1>修改员工信息</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="javascript:;" title="Go to Home" class="tip-bottom" onclick="goindex()"><i class="icon-home"></i> 主页</a>
+				<a href="#" class="current">修改员工信息</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>
+								</span>
+								<h5>修改员工信息</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="" method="post" class="form-horizontal" />
+                                    {% csrf_token %}
+                            {% for e in empobj %}
+									<div class="control-group">
+										<label class="control-label">员工姓名</label>
+										<div class="controls">
+											<input type="text" name="name" value="{{ e.username }}" readonly="readonly" />
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">员工工号</label>
+										<div class="controls">
+											<input type="text" name="job_num" value="{{ e.work_num }}"/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">员工职位</label>
+										<div class="controls">
+                                        <select name="job">
+                                            <option>{{ e.e_work.Job_name }}</option>
+                                            {% for job in empjob %}
+                                                <option>{{ job.Job_name }}</option>
+                                                {% endfor %}
+											</select>
+										</div>
+									</div>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">确认修改</button>
+									</div>
+                                <div style="height: 250px;">
+                                </div>
+
+                            {% endfor %}
+								</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'footer.html' %}
+        </div>
+	</body>
+</html>

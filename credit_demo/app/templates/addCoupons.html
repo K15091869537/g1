@@ -1,0 +1,104 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+<style>
+    .table-align {
+        text-align: center;
+    }
+</style>
+<script>
+    {#    跳转主页#}
+
+    function goindex() {
+        location.href = '/index/'
+    }
+</script>
+<div id="content">
+    <div id="content-header">
+        <h1>添加优惠券</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="javascript:;" title="Go to Home" class="tip-bottom" onclick="goindex()"><i class="icon-home"></i>
+            主页</a>
+        <a href="#">优惠券管理</a>
+        <a href="/showCoupons/" class="current">全部优惠券</a>
+        <a href="#" class="current">添加优惠券</a>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon">
+                        <i class="icon-align-justify"></i>
+                    </span>
+                    <h5>优惠券信息</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <form action="" method="post" class="form-horizontal"/>
+                    {% csrf_token %}
+                        <div class="control-group">
+                            <label class="control-label">优惠券名称</label>
+                            <div class="controls">
+                                <input type="text" name="c_title" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">优惠券类型</label>
+                            <div class="controls">
+                                <select name="c_type">
+                                    <option value="免息"/>免息
+                                    <option value="降息"/>降息
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">开始使用期限</label>
+                            <div class="controls">
+                                <input type="datetime-local" name="c_start"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">截止使用期限</label>
+                            <div class="controls">
+                                <input type="datetime-local" name="c_stop"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">折扣</label>
+                            <div class="controls">
+                                <input type="text" name="discount" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">数量</label>
+                            <div class="controls">
+                                <input type="text" name="c_num" />
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">确认添加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2012 &copy; Unicorn Admin. Brought to you by <a
+                href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
+        </div>
+    </div>
+</div>
+
+            <script src="js/jquery.ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/bootstrap-colorpicker.js"></script>
+            <script src="js/bootstrap-datepicker.js"></script>
+            <script src="js/jquery.uniform.js"></script>
+            <script src="js/select2.min.js"></script>
+            <script src="js/unicorn.js"></script>
+            <script src="js/unicorn.form_common.js"></script>
+</body>
+</html>

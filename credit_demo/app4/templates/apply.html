@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/cssone/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="/static/cssone/css/font-awesome.min.css" type="text/javascript" rel="stylesheet">
+<link href="/static/cssone/css/bootsnav.css" type="text/css" rel="stylesheet">
+<link href="/static/cssone/css/normalize.css" type="text/css" rel="stylesheet">
+<link href="/static/cssone/css/css.css" rel="stylesheet" type="text/css">
+<script src="/static/jsone/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="/static/jsone/js/jquery.step.js"></script>
+<script src="/static/jsone/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/jsone/js/bootsnav.js" type="text/javascript"></script>
+
+<script src="/static/jsone/js/jquery.js" type="text/javascript"></script>
+<!--[if IE]><script src="js/html5.js"></script><![endif]-->
+<title>申请</title>
+</head>
+
+<body class="logobg_style">
+  <div id="large-header" class="large-header login-page">
+  	<canvas id="demo-canvas" width="1590" height="711"></canvas>
+  	<div class="Retrieve_style">
+  	  <div class="Retrieve-content step-body" id="myStep">
+  		<h1 class="title_name">申请贷款</h1>
+ 		  <div class="step-content">
+  			<div class="step-list login_padding">
+
+                <form  role="form" id="form_login" class="" method="post">
+                    {% csrf_token %}
+				 <div class="form-group clearfix">
+					<div class="input-group col-lg-8 col-md-8 col-xs-8">
+                        <p>产品名：{{ p.p_name }}</p>
+                        <p>产品类型：{{ p.Tid.p_type }}</p>
+                        <p>可贷额度：{{ p.range }}</p>
+                        <p>贷款周期：{{ p.date }}</p>
+                        <p>利息：{{ p.rate }}</p>
+                        {% if p.active == 1 %}
+                        <p>办理状态：可办理 </p>
+                        {% else %}
+                        <p>办理状态：不可办理 </p>
+                        {% endif %}
+                        {% if uclist %}
+                            {% for uc in uclist %}
+                            是否使用优惠券：<br>{{ uc.Cid.c_title }}
+                                <input type="radio" name="ra" value="0">不使用
+                                <input type="radio" name="ra" value="1">使用
+                            {% endfor %}
+                        {% endif %}
+					</div>
+				</div>
+                    <div class="form-group">
+					    <button  class="btn btn-danger btn-block btn-login" id="applyBtn" >申请</button>
+				    </div>
+             </form>
+			</div>
+			</div>
+  		</div> 			
+  </div>
+ </div>
+</body>
+</html>
+<script type="text/javascript">
+	
+</script>

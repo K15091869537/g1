@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>贷贷相传</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/fullcalendar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/unicorn.main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/unicorn.grey.css' %}" class="skin-color"/>
+    <link rel="stylesheet" href="{% static 'css/pagination.css' %}"/>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ui.custom.js' %}"></script>
+    <script src="{% static 'js/excanvas.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.min.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.resize.min.js' %}"></script>
+    <script src="{% static 'js/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'js/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'js/unicorn.js' %}"></script>
+    <script src="{% static 'js/unicorn.dashboard.js' %}"></script>
+    <script src="{% static 'js/pagination.js' %}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+        onload = function () {
+       document.getElementsByClassName('container-fluid')[0].style.height = (window.screen.availHeight - 400) + 'px';
+       console.log(window.screen.availHeight);
+
+    }
+    </script>
+</head>
+<body>
+<div id="header">
+    <p  style="margin-top: 20px"><a href="#"  style="z-index: 999;"><img src="{% static 'img/logo1.png' %}"></a></p>
+</div>
+{#搜索#}
+{#<div id="search">#}
+{#    <input type="text" placeholder="Search here..."/>#}
+{#    <button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>#}
+{#</div>#}
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav btn-group">
+        {% if user.username == '' %}
+        <li class="btn btn-inverse"><a title="" href=""><i class="icon icon-user"></i>
+            <span class="text">用户名</span></a></li>
+            <li class="btn btn-inverse"><a title="" href="javascript:;" onclick="gologin()"><i class="icon icon-cog"></i>
+            <span class="text">登录</span></a></li>
+            {% else %}
+            <li class="btn btn-inverse"><a title="" href=""><i class="icon icon-user"></i>
+            <span class="text">{{ user.username }}</span></a></li>
+            <li class="btn btn-inverse dropdown" id="menu-messages">
+                <a href="javascript:;" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle" onclick="seemessage()">
+                    <i class="icon icon-envelope"></i> <span class="text">消息中心</span></a></li>
+            <li class="btn btn-inverse"><a title="" href="javascript:;" onclick="exit()"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+        {% endif %}
+    </ul>
+</div>
+<script>
+    function exit() {
+        location.href='/exit/';
+    }
+    function gologin() {
+        location.href='/login/'
+    }
+    function seemessage() {
+        location.href='/chat/'
+    }
+</script>

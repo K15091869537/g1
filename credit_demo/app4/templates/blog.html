@@ -1,0 +1,120 @@
+    {% include 'header1.html' %}
+    {% load static %}
+
+    <!-- Blog Section Begin -->
+    <section class="blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-7">
+                    {% for n in newslist %}
+                        <div class="blog__item">
+                            <div class="blog__item__img">
+                                <img src="/static/imgone/blog/blog-{{ n.id }}.jpg" alt="">
+                            </div>
+                            <div class="blog__item__text">
+                                <h3><a href="/blog_details/{{ u.id }}/{{ n.id }}/">{{ n.title }}</a></h3>
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i> {{ n.ntime|date:"Y-m-d H:i:s" }}</li>
+                                    <li><i class="fa fa-user"></i> 显示公告发布作者</li>
+                                </ul>
+                                <p>{{ n.content }}</p>
+                                <a href="/blog_details/{{ u.id }}/{{ n.id }}/" class="read__more">回复公告 <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+{#                    处理分页#}
+                    {% if newslist.has_previous %}
+                        <a href="?page=1">首页</a>
+                        <a href="?page={{ newslist.previous_page_number }}">上一页</a>
+                    {% endif %}
+                    {{ newslist.number }}/{{ newslist.paginator.num_pages }}
+                    {% if newslist.has_next %}
+                        <a href="?page={{ newslist.next_page_number }}">下一页</a>
+                        <a href="?page={{ newslist.paginator.num_pages }}">尾页</a>
+                    {% endif %}
+
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <div class="blog__sidebar">
+                        <div class="blog__sidebar__search">
+
+                            <h5>搜索</h5>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="q" placeholder="请输入搜索内容" required>
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+
+                        </div>
+                        <div class="blog__sidebar__categories">
+                            <h5>Categories</h5>
+                            <ul>
+                                <li><a href="#">Finance <span>18</span></a></li>
+                                <li><a href="#">Business <span>20</span></a></li>
+                                <li><a href="#">Loan <span>07</span></a></li>
+                                <li><a href="#">Consulting <span>22</span></a></li>
+                                <li><a href="#">Credit <span>19</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="blog__sidebar__recent">
+                            <h5>Recent Post</h5>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                    <img src="/static/imgone/blog/br-1.jpg" alt="">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Promote With Postcards</h6>
+                                    <p><i class="fa fa-clock-o"></i> 19th March, 2019</p>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                    <img src="/static/imgone/blog/br-2.jpg" alt="">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Bidding Directories</h6>
+                                    <p><i class="fa fa-clock-o"></i> 19th March, 2019</p>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                    <img src="/static/imgone/blog/br-3.jpg" alt="">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Kook 2 Director Add Url</h6>
+                                    <p><i class="fa fa-clock-o"></i> 19th March, 2019</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="blog__sidebar__tags">
+                            <h5>Popular Tag</h5>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Payment</a>
+                            <a href="#">Travel</a>
+                            <a href="#">Finance</a>
+                            <a href="#">Videos</a>
+                            <a href="#">Ideas</a>
+                            <a href="#">Unique</a>
+                            <a href="#">Music</a>
+                            <a href="#">Key</a>
+                        </div>
+                        <div class="blog__sidebar__social">
+                            <h5>Follow Us</h5>
+                            <div class="blog__sidebar__social__links">
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google"><i class="fa fa-google"></i></a>
+                                <a href="#" class="skype"><i class="fa fa-skype"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog End -->
+
+    {% include 'contactbegin.html' %}
+    <!-- Contact End -->
+    {% include 'footer1.html' %}

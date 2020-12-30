@@ -1,0 +1,132 @@
+    <!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Loanday Template">
+    <meta name="keywords" content="Loanday, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贷贷相传</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/cssone/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/cssone/style.css" type="text/css">
+    <!-- Js Plugins -->
+    <script src="{% static 'jsone/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'jsone/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jsone/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'jsone/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'jsone/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'jsone/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'jsone/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'jsone/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'jsone/main.js' %}"></script>
+    
+</head>
+<style>
+    .midebackground{
+        background-image: url("{% static 'imgone/hero-bg.jpg' %}");
+    }
+    .loan_01{
+        background-image: url("{% static 'imgone/loan-services/ls-1.jpg' %}");
+    }
+    .loan_02{
+        background-image: url("{% static 'imgone/loan-services/ls-2.jpg' %}");
+    }
+    .loan_03{
+        background-image: url("{% static 'imgone/loan-services/ls-3.jpg' %}");
+    }
+    .loan_04{
+        background-image: url("{% static 'imgone/loan-services/ls-4.jpg' %}");
+    }
+    .loan_05{
+        background-image: url("{% static 'imgone/loan-services/ls-5.jpg' %}");
+    }
+    .Customersbg{
+        background-image: url("{% static 'imgone/testimonial/testimonial-bg.jpg' %}");
+    }
+    .callBack{
+        background-image: url("{% static 'imgone/call-bg.jpg' %}");
+    }
+    .contactbegin{
+        background-image: url("{% static 'imgone/contact-widget.jpg' %}");
+    }
+</style>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header" style="background-color: #59c5dc">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div style="color: white">
+
+                    </div>
+                        <ul class="header__top__widget">
+                            <li><i class="fa "></i> 欢迎你的到来：{{ u.account }}</li>
+{#                            <li><i class="fa fa-phone"></i> (123) 456-78-910</li>#}
+{#                            <li><i class="fa fa-envelope"></i> Info@colorlib.com</li>#}
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="header__top__language">
+                            <img src="{% static 'imgone/flag.jpg' %}" alt="">
+                            <span>中文</span>
+                            <i class="fa fa-angle-down"></i>
+                            <ul>
+                                <li><a href="#">中文</a></li>
+                                <li><a href="#">English</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{% static 'img/logo1.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="/userindex/{{ u.id }}/">主页</a></li>
+                                <li><a href="/blog/{{ u.id }}/">公司新闻</a></li>
+                                <li><a href="/userdeta/{{ u.id }}/">个人信息</a></li>
+                                <li><a href="/contact/{{ u.id }}/1/">联系我们</a></li>
+                                <li><a href="#">关于我们</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__search">
+                            <i class="fa fa-search search-switch"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->

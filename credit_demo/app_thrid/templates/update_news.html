@@ -1,0 +1,25 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+
+<div id="content">
+			<div id="content-header">
+				<h1>添加新闻</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 主页</a>
+				<a href="#">站内信息</a>
+				<a href="#" class="current">修改编辑新闻</a>
+			</div>
+    <div style="text-align: center;">
+    <form action="" method="post" >
+        {% csrf_token %}
+        <input type="text" name="title_new" placeholder="请输入标题" style="height: 30px;width: 1300px;padding: 10px;margin: 20px ;" value="{{ upd_obj.title }}"><br>
+        <textarea cols="420" rows="10" required name="content_news" style="width: 1300px;padding: 10px;margin: 10px;" placeholder="请输入文本">{{ upd_obj.content }}</textarea><br>
+        <button class="btn btn-success" style="width: 90px;margin-right: 20px; ">确认修改</button><a href="/news/" class="btn btn-info">撤销返回</a>
+    </form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'leftnav.html' %}
+{% include 'style.html' %}
+<style>
+    .table-align{
+        text-align: center;
+    }
+</style>
+<script>
+{#    跳转主页#}
+    function goindex() {
+        location.href='/index/'
+    }
+</script>
+		<div id="content">
+			<div id="content-header">
+				<h1>产品参数配置</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="javascript:;" title="Go to Home" class="tip-bottom" onclick="goindex()"><i class="icon-home"></i> 主页</a>
+				<a href="#" class="current">产品参数配置</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>
+								</span>
+								<h5>产品参数配置</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="" method="post" class="form-horizontal" />
+                                    {% csrf_token %}
+									<div class="control-group">
+										<label class="control-label">产品名称</label>
+										<div class="controls">
+											<input type="text" name="p_name" value="" placeholder="输入产品名称" />
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">产品简介</label>
+										<div class="controls">
+                                            <textarea name="content" placeholder="产品简介"></textarea>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">产品类型</label>
+										<div class="controls">
+                                        <select name="protype">
+
+                                            {% for pro in protype %}
+                                                <option>{{ pro.p_type }}</option>
+                                                {% endfor %}
+											</select>
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">可贷额度</label>
+										<div class="controls">
+                                            <input type="text" name="range" value="" placeholder="可贷额度"/>
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">可贷周期</label>
+										<div class="controls">
+                                            <input type="text" name="date" value="" placeholder="可贷周期" />
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">产品利息</label>
+										<div class="controls">
+                                            <input type="text" name="rate" value="" placeholder="输入产品利息" />
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">开始办理日期</label>
+										<div class="controls">
+                                            <input type="text" name="statdate" value="" placeholder="开始办理日期" />
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">截止办理日期</label>
+										<div class="controls">
+                                            <input type="text" name="stopdate" value="" placeholder="截止办理日期" />
+										</div>
+									</div>
+                                <div class="control-group">
+										<label class="control-label">办理期限</label>
+										<div class="controls">
+                                            <input type="text" name="permanent" value="" placeholder="办理期限" />
+										</div>
+									</div>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">配置产品信息</button>
+									</div>
+                                <div style="height: 1px;">
+                                </div>
+
+								</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'footer.html' %}
+        </div>
+	</body>
+</html>
